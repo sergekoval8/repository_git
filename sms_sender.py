@@ -11,15 +11,6 @@ def port_read(port,n=1):
         time.sleep(0.2)
         print(port.readline())
 
-# def check_answ(port,cont_answ='OK'):
-#     for _ in range(3):
-#         time.sleep(0.2)
-#         answ=str(port.readline())
-#         print(answ)
-#         if answ.find(cont_answ)>=0:
-#             res= 'OK'
-#     return answ
-
 def send_command(port,word:str, cont_answ:str,n:int,m:int):
     bin_str = io.BytesIO()
     bin_str.write(word.encode('ascii'))
@@ -44,8 +35,7 @@ def init_serial(COMNUM='COM1'):
     port_ser= serial.Serial()
     port_ser.baudrate = 19200
     # port_ser.dsrdtr=True
-    if sys.platform.startswith('win'):
-        port_ser.port = COMNUM
+    port_ser.port = COMNUM
     port_ser.timeout = 5
     port_ser.open()
     if port_ser.isOpen():
