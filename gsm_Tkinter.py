@@ -1,7 +1,7 @@
 from tkinter import *
 import json
 import re
-from arduino_ports import serial_ports
+from serial_ports import serial_ports
 from sms_sender import sms_send
 
 SELECT_N=None
